@@ -1,11 +1,11 @@
 package com.newsapp.enciyo.todoapp.ui.addnote
 
-import com.newsapp.enciyo.todoapp.model.modelDao.CardEntity
+import com.newsapp.enciyo.todoapp.model.detailDao.DetailEntity
 
 interface AddNoteContract{
 
     interface Presenter{
-        fun saveDatebase(cardEntity: CardEntity, view: View)
+        fun saveDatebase(detailEntity: DetailEntity, view: View)
     }
 
     interface View{

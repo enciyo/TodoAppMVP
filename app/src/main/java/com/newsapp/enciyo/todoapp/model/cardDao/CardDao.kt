@@ -1,4 +1,4 @@
-package com.newsapp.enciyo.todoapp.model.modelDao
+package com.newsapp.enciyo.todoapp.model.cardDao
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Delete

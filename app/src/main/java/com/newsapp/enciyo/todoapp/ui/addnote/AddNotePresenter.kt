@@ -3,16 +3,16 @@ package com.newsapp.enciyo.todoapp.ui.addnote
 import android.content.Context
 import com.newsapp.enciyo.todoapp.Injection
 import com.newsapp.enciyo.todoapp.Util
-import com.newsapp.enciyo.todoapp.model.modelDao.CardEntity
+import com.newsapp.enciyo.todoapp.model.detailDao.DetailEntity
 
 class AddNotePresenter(val context: Context,val view: AddNoteContract.View) : AddNoteContract.Presenter{
 
 
-    val dao= Injection.provideCardDoa(context)
+    val dao= Injection.provideDetailDao(context)
 
-    override fun saveDatebase(cardEntity: CardEntity, view: AddNoteContract.View) {
+    override fun saveDatebase(detailEntity: DetailEntity, view: AddNoteContract.View) {
         Util.mLog("AddNotePresenter: saveDatabase")
-        dao.insert(cardEntity)
+        dao.insert(detailEntity)
         view.onSucces()
     }
 

@@ -6,12 +6,12 @@ interface CardDetailContract{
 
     interface Presenter{
 
-        fun addTask(detailEntity: DetailEntity)
+        fun getCardTask(view: CardDetailContract.View,value:Int)
     }
 
-    interface View{
-
-
+    interface View {
+        fun onSucces()
+        fun LiveData(list: List<DetailEntity>)
     }
 
 

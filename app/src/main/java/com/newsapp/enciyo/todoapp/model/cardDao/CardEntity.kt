@@ -1,15 +1,15 @@
-package com.newsapp.enciyo.todoapp.model.modelDao
+package com.newsapp.enciyo.todoapp.model.cardDao
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
-import androidx.annotation.Nullable
+import org.jetbrains.annotations.NotNull
 
 
 @Entity(tableName = "taskmodel")
 data class CardEntity(
 
-    @Nullable
+    @NotNull
     @PrimaryKey(autoGenerate = true)
     var cardId: Int = 0,
 

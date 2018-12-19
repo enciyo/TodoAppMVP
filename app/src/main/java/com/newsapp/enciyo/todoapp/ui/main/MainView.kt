@@ -1,13 +1,13 @@
 package com.newsapp.enciyo.todoapp.ui.main
 
-import com.newsapp.enciyo.todoapp.BaseView
-import com.newsapp.enciyo.todoapp.model.modelDao.CardEntity
+import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 
 interface MainView {
 
-  interface View :BaseView{
+  interface View {
     fun initViews(list:List<CardEntity>)
     fun updateUI()
+      fun LiveData(list: List<CardEntity>)
   }
   interface Presenter{
 

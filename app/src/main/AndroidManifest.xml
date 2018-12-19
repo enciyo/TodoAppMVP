@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".ui.cdetail.CardDetailActivity">
         </activity>
+        <activity android:name=".ui.addcard.AddCardActivity">
+        </activity>
     </application>
 
 </manifest>

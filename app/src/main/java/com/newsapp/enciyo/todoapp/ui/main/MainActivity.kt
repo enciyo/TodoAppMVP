@@ -8,13 +8,14 @@ import com.newsapp.enciyo.todoapp.ui.addnote.AddNoteActivity
 import com.newsapp.enciyo.todoapp.R
 import com.newsapp.enciyo.todoapp.Util
 import com.newsapp.enciyo.todoapp.adapter.TodoListAdapter
-import com.newsapp.enciyo.todoapp.model.modelDao.CardEntity
+import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
+import com.newsapp.enciyo.todoapp.ui.addcard.AddCardActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), MainView.View {
-    override fun LiveData(list: List<*>) {
-        initViews(list as List<CardEntity>)
+    override fun LiveData(list: List<CardEntity>) {
+        initViews(list )
     }
 
 
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity(), MainView.View {
 
         mAddButton.setOnClickListener {
             Util.mLog("MainAcitivty: mAddButton")
-            startActivity(Intent(this, AddNoteActivity::class.java))
+            startActivity(Intent(this, AddCardActivity::class.java))
         }
     }
 

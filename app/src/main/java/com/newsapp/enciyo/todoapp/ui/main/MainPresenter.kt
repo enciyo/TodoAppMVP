@@ -3,7 +3,7 @@ package com.newsapp.enciyo.todoapp.ui.main
 import android.content.Context
 import com.newsapp.enciyo.todoapp.Injection
 import com.newsapp.enciyo.todoapp.Util
-import com.newsapp.enciyo.todoapp.model.modelDao.CardEntity
+import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

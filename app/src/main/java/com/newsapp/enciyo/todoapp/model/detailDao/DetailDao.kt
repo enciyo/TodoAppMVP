@@ -12,8 +12,8 @@ interface DetailDao {
     @Query("SELECT * FROM detail_table")
     fun getAllTask(): Maybe<List<DetailEntity>>
 
-    @Query("SELECT * FROM detail_table where cardTitle LIKE  :name1 AND `cardDetail` LIKE :detail")
-    fun findByName(name1: String, detail: String): DetailEntity
+    @Query("SELECT * FROM detail_table where `references` LIKE  :value")
+    fun findByName(value: Int): Maybe<List<DetailEntity>>
 
     @Insert
     fun insert(tasks: DetailEntity)

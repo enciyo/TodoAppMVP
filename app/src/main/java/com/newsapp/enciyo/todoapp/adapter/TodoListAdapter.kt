@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.newsapp.enciyo.todoapp.R
 import com.newsapp.enciyo.todoapp.Util
-import com.newsapp.enciyo.todoapp.model.modelDao.CardEntity
+import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 import com.newsapp.enciyo.todoapp.ui.cdetail.CardDetailActivity
 import com.newsapp.enciyo.todoapp.ui.main.MainView
 import kotlinx.android.synthetic.main.item_list.view.*
@@ -46,7 +46,10 @@ class TodoListAdapter(val context:Context, val list:List<CardEntity>, val presen
                 }
 
                 itemView.setOnClickListener {
-                    context.startActivity(Intent(context,CardDetailActivity::class.java).putExtra("txtHeader",cardEntity.cardTitle))
+                    val inte=Intent(context,CardDetailActivity::class.java)
+                    inte.putExtra("keyTitle",cardEntity.cardTitle)
+                    inte.putExtra("keyId",cardEntity.cardId.toString())
+                    context.startActivity(inte)
                 }
 
                 mListCheck.setOnClickListener {
