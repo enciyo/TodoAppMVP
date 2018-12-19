@@ -17,6 +17,7 @@
 
         <RadioButton
                 android:id="@+id/mListCheck"
+                android:visibility="gone"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -34,11 +35,12 @@
             <TextView
                     android:text="Yarın sabah erken Kalkılacak"
                     android:id="@+id/mListTitle"
+                    android:textColor="@color/textİtemColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textSize="16sp"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:textSize="18sp"/>
 
             <TextView
                     android:text="Proje ile alakalı sunumlar yapılacak"
@@ -46,7 +48,7 @@
                     android:layout_margin="1dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"/>
+                    android:textSize="14sp"/>
 
             <TextView
                     android:text="Etiket"

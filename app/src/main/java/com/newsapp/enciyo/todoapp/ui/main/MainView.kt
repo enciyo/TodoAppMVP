@@ -1,17 +1,18 @@
 package com.newsapp.enciyo.todoapp.ui.main
 
-import com.newsapp.enciyo.todoapp.model.ModelEntity
+import com.newsapp.enciyo.todoapp.BaseView
+import com.newsapp.enciyo.todoapp.model.modelDao.CardEntity
 
 interface MainView {
 
-  interface View {
-    fun initViews(list:List<ModelEntity>)
+  interface View :BaseView{
+    fun initViews(list:List<CardEntity>)
     fun updateUI()
   }
   interface Presenter{
 
       fun getAllTodos(view: View)
-      fun deleteTask(modelEntity: ModelEntity)
+      fun deleteTask(cardEntity: CardEntity)
 
   }
 

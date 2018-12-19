@@ -17,6 +17,7 @@
 
         <TextView
                 android:text="Welcome to To-Do"
+                android:id="@+id/textHeader"
                 android:textSize="28sp"
                 android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title"
                 android:textColor="@color/textColor"
@@ -30,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
-                android:id="@+id/mRecyclerView"
+                android:id="@+id/mRecyclerViewDetail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 

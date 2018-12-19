@@ -4,17 +4,18 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import com.newsapp.enciyo.todoapp.ui.addnote.AddNoteActivity
 import com.newsapp.enciyo.todoapp.R
 import com.newsapp.enciyo.todoapp.Util
 import com.newsapp.enciyo.todoapp.adapter.TodoListAdapter
-import com.newsapp.enciyo.todoapp.model.ModelEntity
+import com.newsapp.enciyo.todoapp.model.modelDao.CardEntity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), MainView.View {
+    override fun LiveData(list: List<*>) {
+        initViews(list as List<CardEntity>)
+    }
 
 
     lateinit var presenter: MainPresenter
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity(), MainView.View {
         setContentView(R.layout.activity_main)
 
         presenter= MainPresenter(this@MainActivity, this)
+
+
 
         mAddButton.setOnClickListener {
             Util.mLog("MainAcitivty: mAddButton")
@@ -41,9 +44,9 @@ class MainActivity : AppCompatActivity(), MainView.View {
         presenter.getAllTodos(this)
     }
 
-    override fun initViews(list:List<ModelEntity>) {
+    override fun initViews(list:List<CardEntity>) {
         Util.mLog("MainAcitivty: initViews")
-        mRecyclerView.layoutManager= LinearLayoutManager(this,RecyclerView.VERTICAL,false)
+        mRecyclerView.layoutManager= GridLayoutManager(this,2)
         mRecyclerView.adapter= TodoListAdapter(this, list,presenter)
     }
 

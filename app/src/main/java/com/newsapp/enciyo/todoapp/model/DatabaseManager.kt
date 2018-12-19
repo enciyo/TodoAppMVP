@@ -4,12 +4,17 @@ import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
+import com.newsapp.enciyo.todoapp.model.modelDao.CardDao
+import com.newsapp.enciyo.todoapp.model.modelDao.CardEntity
+import com.newsapp.enciyo.todoapp.model.detailDao.DetailDao
+import com.newsapp.enciyo.todoapp.model.detailDao.DetailEntity
 
 
-@Database(entities = [ModelEntity::class], version = 5,exportSchema = false)
+@Database(entities = [CardEntity::class,DetailEntity::class], version = 7,exportSchema = false)
 abstract class DatabaseManager : RoomDatabase() {
 
-    abstract fun modelDao(): ModelDao
+    abstract fun modelDao(): CardDao
+    abstract fun detailDao():DetailDao
 
     companion object {
         var INSTANCE: DatabaseManager? = null

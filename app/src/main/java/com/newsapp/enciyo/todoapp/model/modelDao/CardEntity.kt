@@ -1,4 +1,4 @@
-package com.newsapp.enciyo.todoapp.model
+package com.newsapp.enciyo.todoapp.model.modelDao
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
@@ -7,20 +7,17 @@ import androidx.annotation.Nullable
 
 
 @Entity(tableName = "taskmodel")
-data class ModelEntity(
+data class CardEntity(
 
     @Nullable
     @PrimaryKey(autoGenerate = true)
-    var taskId: Int = 0,
+    var cardId: Int = 0,
 
-    @ColumnInfo(name = "title")
-    var title: String,
+    @ColumnInfo(name = "cardTitle")
+    var cardTitle: String,
 
-    @ColumnInfo(name = "detail")
-    var detail: String,
-
-    @ColumnInfo(name = "tag")
-    var tag:String
-
+    @ColumnInfo(name = "cardDetail")
+    var cardDetail: String
 
 )
+
