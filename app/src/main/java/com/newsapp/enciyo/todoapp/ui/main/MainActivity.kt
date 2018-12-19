@@ -3,6 +3,7 @@ package com.newsapp.enciyo.todoapp.ui.main
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.newsapp.enciyo.todoapp.ui.addnote.AddNoteActivity
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity(), MainView.View {
 
     override fun initViews(list:List<ModelEntity>) {
         Util.mLog("MainAcitivty: initViews")
-        mRecyclerView.layoutManager= LinearLayoutManager(this, RecyclerView.VERTICAL,false)
+        mRecyclerView.layoutManager= LinearLayoutManager(this,RecyclerView.VERTICAL,false)
         mRecyclerView.adapter= TodoListAdapter(this, list,presenter)
     }
 
