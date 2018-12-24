@@ -7,6 +7,8 @@ interface CardDetailContract{
     interface Presenter{
 
         fun getCardTask(view: CardDetailContract.View,value:Int)
+        fun deleteNote(detailEntity: DetailEntity)
+
     }
 
     interface View {

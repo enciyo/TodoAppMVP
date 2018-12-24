@@ -2,6 +2,7 @@ package com.newsapp.enciyo.todoapp.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.opengl.Visibility
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -49,6 +50,7 @@ class TodoListAdapter(val context:Context, val list:List<CardEntity>, val presen
                     val inte=Intent(context,CardDetailActivity::class.java)
                     inte.putExtra("keyTitle",cardEntity.cardTitle)
                     inte.putExtra("keyId",cardEntity.cardId.toString())
+                    inte.putExtra("keyDetail",cardEntity.cardDetail.toString())
                     context.startActivity(inte)
                 }
 

@@ -7,15 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import com.newsapp.enciyo.todoapp.R
 import com.newsapp.enciyo.todoapp.model.detailDao.DetailEntity
+import com.newsapp.enciyo.todoapp.ui.addnote.AddNoteContract
+import com.newsapp.enciyo.todoapp.ui.cdetail.CardDetailContract
 import kotlinx.android.synthetic.main.activity_add_card.view.*
 import kotlinx.android.synthetic.main.item_list.view.*
 
-class DetailListAdapter(val context: Context,val list: List<DetailEntity> ) : RecyclerView.Adapter<DetailListAdapter.MyViewHolder>() {
+class DetailListAdapter(val context: Context,val list: List<DetailEntity>,val presenter:CardDetailContract.Presenter) : RecyclerView.Adapter<DetailListAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_list,p0,false)
-        return MyViewHolder(view)
+        val view = LayoutInflater.from(context).inflate(R.layout.detail_item,p0,false)
+        return MyViewHolder(view,presenter)
     }
 
     override fun getItemCount(): Int {
@@ -27,13 +29,17 @@ class DetailListAdapter(val context: Context,val list: List<DetailEntity> ) : Re
     }
 
 
-    class MyViewHolder(itemview:View) : RecyclerView.ViewHolder(itemview){
+    class MyViewHolder(itemview:View,val presenter: CardDetailContract.Presenter) : RecyclerView.ViewHolder(itemview){
 
 
         fun setData(list:DetailEntity){
             itemView.apply {
                 mListTitle.text=list.taskTitle
                 mListDesc.text=list.taskDetail
+            }
+
+            itemView.mListCheck.setOnClickListener {
+                presenter.deleteNote(list)
             }
         }
     }

@@ -27,13 +27,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-        <EditText
-                android:id="@+id/mTag"
-                android:hint="Enter Tag"
-                android:inputType="text"
-                android:layout_margin="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
         <Button
                 android:id="@+id/mCardSave"
                 android:text="Save"

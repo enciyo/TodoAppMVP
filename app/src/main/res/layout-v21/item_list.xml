@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                                     xmlns:app="http://schemas.android.com/apk/res-auto"
-                                    xmlns:tools="http://schemas.android.com/tools"
                                     android:padding="14dp"
-                                    android:elevation="60dp"
+                                    android:elevation="20dp"
                                     android:layout_margin="6dp"
                                     app:cardCornerRadius="5dp"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    tools:targetApi="lollipop">
+                                    android:layout_height="wrap_content">
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -52,6 +50,13 @@
                         android:layout_height="wrap_content"
                         android:textSize="14sp"/>
 
+                <TextView
+                        android:text="Etiket"
+                        android:layout_margin="1dp"
+                        android:id="@+id/mListTag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"/>
             </LinearLayout>
 
         </LinearLayout>

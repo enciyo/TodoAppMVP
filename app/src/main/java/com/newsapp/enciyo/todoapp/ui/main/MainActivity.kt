@@ -4,10 +4,14 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.StaggeredGridLayoutManager
+import com.newsapp.enciyo.todoapp.Injection
 import com.newsapp.enciyo.todoapp.ui.addnote.AddNoteActivity
 import com.newsapp.enciyo.todoapp.R
 import com.newsapp.enciyo.todoapp.Util
 import com.newsapp.enciyo.todoapp.adapter.TodoListAdapter
+import com.newsapp.enciyo.todoapp.addCardDemo
 import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 import com.newsapp.enciyo.todoapp.ui.addcard.AddCardActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,7 +28,6 @@ class MainActivity : AppCompatActivity(), MainView.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         presenter= MainPresenter(this@MainActivity, this)
 
 
@@ -32,6 +35,8 @@ class MainActivity : AppCompatActivity(), MainView.View {
         mAddButton.setOnClickListener {
             Util.mLog("MainAcitivty: mAddButton")
             startActivity(Intent(this, AddCardActivity::class.java))
+           // addCardDemo.addDemo(this)
+           // updateUI()
         }
     }
 
@@ -47,7 +52,8 @@ class MainActivity : AppCompatActivity(), MainView.View {
 
     override fun initViews(list:List<CardEntity>) {
         Util.mLog("MainAcitivty: initViews")
-        mRecyclerView.layoutManager= GridLayoutManager(this,2)
+        val grid = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
+        mRecyclerView.layoutManager= grid
         mRecyclerView.adapter= TodoListAdapter(this, list,presenter)
     }
 

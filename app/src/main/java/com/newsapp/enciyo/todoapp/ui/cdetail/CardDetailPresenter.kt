@@ -21,6 +21,10 @@ class CardDetailPresenter(val view:CardDetailContract.View,val context: Context)
         )
     }
 
+    override fun deleteNote(detailEntity: DetailEntity) {
+        dao.delete(detailEntity)
+        view.onSucces()
+    }
 
 
 }
