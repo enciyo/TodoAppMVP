@@ -19,9 +19,5 @@ object Injection{
         return database2!!.detailDao()
     }
 
-    fun provideCardId(cardEntity: CardEntity):Int{
-        return cardEntity.cardId
-    }
-
 
 }
