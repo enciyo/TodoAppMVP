@@ -13,7 +13,7 @@ interface CardDetailContract{
 
     interface View {
         fun onSucces()
-        fun LiveData(list: List<DetailEntity>)
+        fun initView(list: List<DetailEntity>)
     }
 
 

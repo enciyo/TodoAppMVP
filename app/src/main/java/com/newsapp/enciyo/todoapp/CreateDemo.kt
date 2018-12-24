@@ -4,9 +4,9 @@ import android.content.Context
 import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 import com.newsapp.enciyo.todoapp.model.detailDao.DetailEntity
 
-object addCardDemo {
+object CreateDemo {
 
-    fun addDemo(context: Context) {
+    fun addCard(context: Context) {
         val inject = Injection.provideCardDoa(context)
         inject.apply {
             insert(CardEntity(Math.random().toInt(), "Work", "Monday"))

@@ -16,7 +16,7 @@ class CardDetailPresenter(val view:CardDetailContract.View,val context: Context)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
-                view.LiveData(it)
+                view.initView(it)
             }
         )
     }

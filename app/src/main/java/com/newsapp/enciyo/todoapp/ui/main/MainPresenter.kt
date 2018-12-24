@@ -20,7 +20,7 @@ class MainPresenter(val view: MainView.View, val context: Context) :
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
-                view.LiveData(it)
+                view.initViews(it)
             }
         )
     }

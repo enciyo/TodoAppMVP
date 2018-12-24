@@ -7,7 +7,6 @@ interface MainView {
   interface View {
     fun initViews(list:List<CardEntity>)
     fun updateUI()
-      fun LiveData(list: List<CardEntity>)
   }
   interface Presenter{
 
