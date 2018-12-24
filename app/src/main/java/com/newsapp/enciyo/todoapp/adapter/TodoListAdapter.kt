@@ -2,13 +2,12 @@ package com.newsapp.enciyo.todoapp.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.opengl.Visibility
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.newsapp.enciyo.todoapp.R
-import com.newsapp.enciyo.todoapp.Util
+import com.newsapp.enciyo.todoapp.Extensions
 import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 import com.newsapp.enciyo.todoapp.ui.cdetail.CardDetailActivity
 import com.newsapp.enciyo.todoapp.ui.main.MainView
@@ -29,7 +28,7 @@ class TodoListAdapter(val context:Context, val list:List<CardEntity>, val presen
 
     override fun onBindViewHolder(p0: MyViewHolder, p1: Int) {
         p0.setData(list[p1])
-        Util.mLog("Hata")
+        Extensions.mLog("Hata")
     }
 
 
@@ -47,11 +46,13 @@ class TodoListAdapter(val context:Context, val list:List<CardEntity>, val presen
                 }
 
                 itemView.setOnClickListener {
-                    val inte=Intent(context,CardDetailActivity::class.java)
-                    inte.putExtra("keyTitle",cardEntity.cardTitle)
-                    inte.putExtra("keyId",cardEntity.cardId.toString())
-                    inte.putExtra("keyDetail",cardEntity.cardDetail.toString())
-                    context.startActivity(inte)
+                    val intent=Intent(context,CardDetailActivity::class.java)
+                    intent.apply {
+                        putExtra("keyTitle",cardEntity.cardTitle)
+                        putExtra("keyId",cardEntity.cardId.toString())
+                        putExtra("keyDetail",cardEntity.cardDetail.toString())
+                    }
+                    context.startActivity(intent)
                 }
 
                 mListCheck.setOnClickListener {

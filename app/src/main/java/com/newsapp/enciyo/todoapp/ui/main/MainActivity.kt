@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.View
+import com.newsapp.enciyo.todoapp.CreateDemo
 import com.newsapp.enciyo.todoapp.R
-import com.newsapp.enciyo.todoapp.Util
+import com.newsapp.enciyo.todoapp.Extensions
 import com.newsapp.enciyo.todoapp.adapter.TodoListAdapter
 import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 import com.newsapp.enciyo.todoapp.ui.addcard.AddCardActivity
@@ -28,10 +29,10 @@ class MainActivity : AppCompatActivity(), MainView.View,View.OnClickListener{
     }
 
     override fun onClick(v: View?) {
-        Util.mLog("MainAcitivty: mAddButton")
-        startActivity(Intent(this, AddCardActivity::class.java))
-        // CreateDemo.addCard(this)
-        // updateUI()
+        Extensions.mLog("MainAcitivty: mAddButton")
+        //startActivity(Intent(this, AddCardActivity::class.java))
+         CreateDemo.addCard(this)
+         updateUI()
     }
 
     override fun onResume() {
@@ -40,12 +41,12 @@ class MainActivity : AppCompatActivity(), MainView.View,View.OnClickListener{
     }
 
     override fun updateUI() {
-        Util.mLog("MainActivity: updateUI")
+        Extensions.mLog("MainActivity: updateUI")
         presenter.getAllTodos(this)
     }
 
     override fun initViews(list:List<CardEntity>) {
-        Util.mLog("MainAcitivty: initViews")
+        Extensions.mLog("MainAcitivty: initViews")
         val grid = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
         mRecyclerView.layoutManager= grid
         mRecyclerView.adapter= TodoListAdapter(this, list,presenter)

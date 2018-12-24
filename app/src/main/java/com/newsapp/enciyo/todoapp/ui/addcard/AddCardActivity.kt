@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.newsapp.enciyo.todoapp.R
-import com.newsapp.enciyo.todoapp.Util
+import com.newsapp.enciyo.todoapp.Extensions
 import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 import kotlinx.android.synthetic.main.activity_add_card.*
 
@@ -24,7 +24,7 @@ class AddCardActivity : AppCompatActivity(), AddCardContract.View, View.OnClickL
     }
 
     override fun onSucces() {
-        Util.mLog("AddCardActivity: onSucces")
+        Extensions.mLog("AddCardActivity: onSucces")
         finish()
     }
 

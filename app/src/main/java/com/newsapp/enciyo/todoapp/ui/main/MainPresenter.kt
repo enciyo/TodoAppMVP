@@ -2,7 +2,7 @@ package com.newsapp.enciyo.todoapp.ui.main
 
 import android.content.Context
 import com.newsapp.enciyo.todoapp.Injection
-import com.newsapp.enciyo.todoapp.Util
+import com.newsapp.enciyo.todoapp.Extensions
 import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -15,7 +15,7 @@ class MainPresenter(val view: MainView.View, val context: Context) :
     val dao = Injection.provideCardDoa(context)
 
     override fun getAllTodos(view: MainView.View) {
-        Util.mLog("MainPresenter: getAllTodos")
+        Extensions.mLog("MainPresenter: getAllTodos")
         CompositeDisposable().add(dao.getAllCard()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -26,7 +26,7 @@ class MainPresenter(val view: MainView.View, val context: Context) :
     }
 
     override fun deleteTask(cardEntity: CardEntity) {
-        Util.mLog("MainPresenter: deleteTask")
+        Extensions.mLog("MainPresenter: deleteTask")
         dao.delete(cardEntity)
         view.updateUI()
     }

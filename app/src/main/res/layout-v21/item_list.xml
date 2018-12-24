@@ -28,6 +28,7 @@
             <LinearLayout
                     android:orientation="vertical"
                     android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
                     android:paddingBottom="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
@@ -50,13 +51,6 @@
                         android:layout_height="wrap_content"
                         android:textSize="14sp"/>
 
-                <TextView
-                        android:text="Etiket"
-                        android:layout_margin="1dp"
-                        android:id="@+id/mListTag"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"/>
             </LinearLayout>
 
         </LinearLayout>

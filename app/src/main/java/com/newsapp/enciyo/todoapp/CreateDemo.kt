@@ -28,6 +28,9 @@ object CreateDemo {
             insert(DetailEntity(Math.random().toInt(),reference,"Room library","Kotlin"))
             insert(DetailEntity(Math.random().toInt(),reference,"Dagger 2","Kotlin"))
             insert(DetailEntity(Math.random().toInt(),reference,"MVP Pattern","Kotlin"))
+            insert(DetailEntity(Math.random().toInt(),reference,"MVVM Pattern","Kotlin"))
+            insert(DetailEntity(Math.random().toInt(),reference,"Retrofit","Kotlin"))
+            insert(DetailEntity(Math.random().toInt(),reference,"Rx","Kotlin"))
             insert(DetailEntity(Math.random().toInt(),reference,"Bloc Pattern","Flutter"))
             insert(DetailEntity(Math.random().toInt(),reference,"Json serialization","Flutter"))
         }

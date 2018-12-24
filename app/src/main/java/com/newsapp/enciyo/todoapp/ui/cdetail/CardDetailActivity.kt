@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import com.newsapp.enciyo.todoapp.CreateDemo
 import com.newsapp.enciyo.todoapp.R
-import com.newsapp.enciyo.todoapp.Util
+import com.newsapp.enciyo.todoapp.Extensions
 import com.newsapp.enciyo.todoapp.adapter.DetailListAdapter
 import com.newsapp.enciyo.todoapp.model.detailDao.DetailEntity
 import com.newsapp.enciyo.todoapp.ui.addnote.AddNoteActivity
@@ -15,9 +16,9 @@ import kotlinx.android.synthetic.main.activity_card_detail.*
 
 class CardDetailActivity : AppCompatActivity(), CardDetailContract.View,View.OnClickListener{
     override fun onClick(v: View?) {
-        startActivity(Intent(this, AddNoteActivity::class.java).putExtra("CardId", cardId.toString()))
-        // CreateDemo.addDetail(this,cardId!!)
-        //onSucces()
+        //startActivity(Intent(this, AddNoteActivity::class.java).putExtra("CardId", cardId.toString()))
+        CreateDemo.addDetail(this,cardId!!)
+        onSucces()
     }
 
     val presenter = CardDetailPresenter(this, this)
@@ -36,7 +37,7 @@ class CardDetailActivity : AppCompatActivity(), CardDetailContract.View,View.OnC
     }
 
     override fun onSucces() {
-        Util.mLog("CardDetailActivity: onSucces")
+        Extensions.mLog("CardDetailActivity: onSucces")
         presenter.getCardTask(this, cardId)
     }
 
