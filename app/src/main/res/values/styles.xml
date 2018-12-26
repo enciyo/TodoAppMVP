@@ -11,6 +11,7 @@
         <item name="android:textCursorDrawable">@drawable/color_cursor</item>
         <item name="android:navigationBarColor"
               tools:targetApi="lollipop">@color/colorPrimary</item>
+
     </style>
 
 </resources>

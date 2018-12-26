@@ -5,11 +5,12 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.StaggeredGridLayoutManager
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
-import com.newsapp.enciyo.todoapp.CreateDemo
 import com.newsapp.enciyo.todoapp.R
 import com.newsapp.enciyo.todoapp.Extensions
-import com.newsapp.enciyo.todoapp.adapter.TodoListAdapter
+import com.newsapp.enciyo.todoapp.adapter.MainItemTouchHelper
+import com.newsapp.enciyo.todoapp.adapter.MainListAdapter
 import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 import com.newsapp.enciyo.todoapp.ui.addcard.AddCardActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,7 +18,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainView.View,View.OnClickListener{
 
+
     lateinit var presenter: MainPresenter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,13 +29,15 @@ class MainActivity : AppCompatActivity(), MainView.View,View.OnClickListener{
         presenter= MainPresenter(this@MainActivity, this)
         mAddButton.setOnClickListener(this)
 
+
+
     }
 
     override fun onClick(v: View?) {
         Extensions.mLog("MainAcitivty: mAddButton")
-        //startActivity(Intent(this, AddCardActivity::class.java))
-         CreateDemo.addCard(this)
-         updateUI()
+        startActivity(Intent(this, AddCardActivity::class.java))
+        // CreateDemo.addCard(this)
+         //updateUI()
     }
 
     override fun onResume() {
@@ -49,7 +54,11 @@ class MainActivity : AppCompatActivity(), MainView.View,View.OnClickListener{
         Extensions.mLog("MainAcitivty: initViews")
         val grid = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
         mRecyclerView.layoutManager= grid
-        mRecyclerView.adapter= TodoListAdapter(this, list,presenter)
+        val adapter=MainListAdapter(this,list,presenter)
+        mRecyclerView.adapter= adapter
+        ItemTouchHelper(MainItemTouchHelper(adapter)).attachToRecyclerView(mRecyclerView)
+
+
     }
 
 
