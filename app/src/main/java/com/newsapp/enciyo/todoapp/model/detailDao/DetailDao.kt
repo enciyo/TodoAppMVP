@@ -1,9 +1,6 @@
 package com.newsapp.enciyo.todoapp.model.detailDao
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import io.reactivex.Maybe
 
 @Dao
@@ -20,6 +17,9 @@ interface DetailDao {
 
     @Delete
     fun delete(tasks: DetailEntity)
+
+    @Update
+    fun update(tasks: DetailEntity)
 
 }
 

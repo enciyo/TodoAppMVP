@@ -17,7 +17,11 @@ data class CardEntity(
     var cardTitle: String,
 
     @ColumnInfo(name = "cardDetail")
-    var cardDetail: String
+    var cardDetail: String,
+
+    @ColumnInfo(name="cardState")
+    var cardState:Int
+
 
 )
 

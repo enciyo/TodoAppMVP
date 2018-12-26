@@ -10,6 +10,12 @@ import io.reactivex.schedulers.Schedulers
 
 class MainPresenter(val view: MainView.View, val context: Context) :
     MainView.Presenter {
+    override fun updateTask(cardEntity: CardEntity) {
+        Extensions.mLog("MainPresener: updateTask")
+        dao.update(cardEntity)
+        view.updateUI()
+    }
+
 
 
     val dao = Injection.provideCardDoa(context)

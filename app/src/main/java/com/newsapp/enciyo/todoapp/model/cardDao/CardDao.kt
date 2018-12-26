@@ -1,9 +1,6 @@
 package com.newsapp.enciyo.todoapp.model.cardDao
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import io.reactivex.Maybe
 
 @Dao
@@ -20,5 +17,8 @@ interface CardDao {
 
         @Delete
         fun delete(card: CardEntity)
+
+        @Update
+        fun update(card:CardEntity)
 
 }

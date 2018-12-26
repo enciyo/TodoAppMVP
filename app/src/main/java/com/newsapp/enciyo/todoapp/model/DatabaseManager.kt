@@ -10,7 +10,7 @@ import com.newsapp.enciyo.todoapp.model.detailDao.DetailDao
 import com.newsapp.enciyo.todoapp.model.detailDao.DetailEntity
 
 
-@Database(entities = [CardEntity::class,DetailEntity::class], version = 13,exportSchema = false)
+@Database(entities = [CardEntity::class,DetailEntity::class], version = 15,exportSchema = false)
 abstract class DatabaseManager : RoomDatabase() {
 
     abstract fun modelDao(): CardDao

@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
+import com.newsapp.enciyo.todoapp.CreateDemo
 import com.newsapp.enciyo.todoapp.R
 import com.newsapp.enciyo.todoapp.Extensions
 import com.newsapp.enciyo.todoapp.adapter.MainItemTouchHelper
@@ -35,9 +36,8 @@ class MainActivity : AppCompatActivity(), MainView.View,View.OnClickListener{
 
     override fun onClick(v: View?) {
         Extensions.mLog("MainAcitivty: mAddButton")
+        CreateDemo.addCard(this)
         startActivity(Intent(this, AddCardActivity::class.java))
-        // CreateDemo.addCard(this)
-         //updateUI()
     }
 
     override fun onResume() {

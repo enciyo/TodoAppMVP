@@ -2,8 +2,6 @@ package com.newsapp.enciyo.todoapp.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,15 +12,14 @@ import com.newsapp.enciyo.todoapp.Extensions
 import com.newsapp.enciyo.todoapp.model.cardDao.CardEntity
 import com.newsapp.enciyo.todoapp.ui.cdetail.CardDetailActivity
 import com.newsapp.enciyo.todoapp.ui.main.MainView
-import kotlinx.android.synthetic.main.activity_card_detail.view.*
 import kotlinx.android.synthetic.main.item_list.view.*
 
 class MainListAdapter(val context: Context, val list: List<CardEntity>, val presenter: MainView.Presenter) :
-    RecyclerView.Adapter<MainListAdapter.MyViewHolder>(),MainItemTouchHelper.RcyItemTouchListener {
+    RecyclerView.Adapter<MainListAdapter.MyViewHolder>(), MainItemTouchHelper.RcyItemTouchListener {
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, p1: Int) {
         (viewHolder as MyViewHolder).removeData()
-        Log.i("Swipe","Swipeeee")
+        Log.i("Swipe", "Swipeeee")
     }
 
 
@@ -36,7 +33,7 @@ class MainListAdapter(val context: Context, val list: List<CardEntity>, val pres
     }
 
     override fun onBindViewHolder(p0: MyViewHolder, p1: Int) {
-        p0.cardEntity=list[p1]
+        p0.cardEntity = list[p1]
         p0.setData()
         Extensions.mLog("Hata")
     }
@@ -45,7 +42,7 @@ class MainListAdapter(val context: Context, val list: List<CardEntity>, val pres
     class MyViewHolder(itemView: View, private val presenter: MainView.Presenter) : RecyclerView.ViewHolder(itemView) {
         lateinit var cardEntity: CardEntity
 
-        fun removeData(){
+        fun removeData() {
             presenter.deleteTask(cardEntity)
         }
 
@@ -54,13 +51,20 @@ class MainListAdapter(val context: Context, val list: List<CardEntity>, val pres
                 mListTitle.text = cardEntity.cardTitle
                 mListDesc.text = cardEntity.cardDetail
 
-                itemView.setOnLongClickListener {
+
+                if (cardEntity.cardState == 1) {
+                    mCheck.isChecked=true
+                } else if(cardEntity.cardState==0) {
+                    mCheck.isChecked=false
+                }
+
+                setOnLongClickListener {
                     presenter.deleteTask(cardEntity)
                     it.setBackgroundColor(resources.getColor(R.color.colorPrimary))
                     true
                 }
 
-                itemView.setOnClickListener {
+                setOnClickListener {
                     val intent = Intent(context, CardDetailActivity::class.java)
                     intent.apply {
                         putExtra("keyTitle", cardEntity.cardTitle)
@@ -70,8 +74,15 @@ class MainListAdapter(val context: Context, val list: List<CardEntity>, val pres
                     context.startActivity(intent)
                 }
 
-                mListCheck.setOnClickListener {
-                    mListCheck.isChecked = true
+                mCheck.setOnClickListener {
+                    if (cardEntity.cardState == 1) {
+                        cardEntity.cardState = 0
+                        presenter.updateTask(cardEntity)
+
+                    } else {
+                        cardEntity.cardState = 1
+                        presenter.updateTask(cardEntity)
+                    }
                 }
 
 

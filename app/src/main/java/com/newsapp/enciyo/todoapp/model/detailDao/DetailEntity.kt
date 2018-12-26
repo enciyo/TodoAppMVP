@@ -16,10 +16,13 @@ data class DetailEntity (
     @ColumnInfo(name = "references")
     var references: Int=0,
 
-    @ColumnInfo(name = "cardTitle")
+    @ColumnInfo(name = "taskTitle")
     var taskTitle:String,
 
-    @ColumnInfo(name = "cardDetail")
-    var taskDetail:String
+    @ColumnInfo(name = "taskDetail")
+    var taskDetail:String,
+
+    @ColumnInfo(name = "taskState")
+    var taskState:Int
 
 )

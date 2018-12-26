@@ -37,7 +37,7 @@
 
             <TextView
                     android:text="Yarın sabah erken Kalkılacak"
-                    android:id="@+id/mListTitle"
+                    android:id="@+id/mTitle"
                     android:textColor="@color/textİtemColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
 
             <TextView
                     android:text="Proje ile alakalı sunumlar yapılacak"
-                    android:id="@+id/mListDesc"
+                    android:id="@+id/mDesc"
                     android:layout_margin="1dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

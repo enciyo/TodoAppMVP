@@ -16,11 +16,11 @@ import com.newsapp.enciyo.todoapp.model.detailDao.DetailEntity
 import com.newsapp.enciyo.todoapp.ui.addnote.AddNoteActivity
 import kotlinx.android.synthetic.main.activity_card_detail.*
 
-class CardDetailActivity : AppCompatActivity(), CardDetailContract.View,View.OnClickListener{
+class CardDetailActivity : AppCompatActivity(), CardDetailContract.View, View.OnClickListener {
     override fun onClick(v: View?) {
+        CreateDemo.addDetail(this, this.cardId)
         startActivity(Intent(this, AddNoteActivity::class.java).putExtra("CardId", cardId.toString()))
-       // CreateDemo.addDetail(this,cardId!!)
-        //onSucces()
+
     }
 
     val presenter = CardDetailPresenter(this, this)
@@ -44,7 +44,7 @@ class CardDetailActivity : AppCompatActivity(), CardDetailContract.View,View.OnC
     }
 
     override fun initView(list: List<DetailEntity>) {
-        val adapter =DetailListAdapter(this, list, presenter)
+        val adapter = DetailListAdapter(this, list, presenter)
         mRecyclerViewDetail.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         mRecyclerViewDetail.adapter = adapter
         ItemTouchHelper(DetailItemTouchHelper(adapter)).attachToRecyclerView(mRecyclerViewDetail)
@@ -52,6 +52,6 @@ class CardDetailActivity : AppCompatActivity(), CardDetailContract.View,View.OnC
 
     override fun onResume() {
         super.onResume()
-        presenter.getCardTask(this, cardId!!)
+        presenter.getCardTask(this, cardId)
     }
 }

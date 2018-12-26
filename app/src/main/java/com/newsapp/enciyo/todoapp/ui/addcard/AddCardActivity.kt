@@ -20,7 +20,7 @@ class AddCardActivity : AppCompatActivity(), AddCardContract.View, View.OnClickL
     }
 
     override fun onClick(v: View?) {
-        presenter.saveCardDatabase(CardEntity(Math.random().toInt(), mTitle.text.toString(), mDetail.text.toString()))
+        presenter.saveCardDatabase(CardEntity(Math.random().toInt(), mTitle.text.toString(), mDetail.text.toString(),0))
     }
 
     override fun onSucces() {

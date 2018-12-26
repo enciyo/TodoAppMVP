@@ -13,8 +13,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <RadioButton
-                android:id="@+id/mListCheck"
+                android:id="@+id/mCheck"
                 android:gravity="right"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
@@ -23,7 +24,7 @@
                 android:layout_alignParentEnd="true"/>
         <LinearLayout
                 android:orientation="horizontal"
-                android:layout_below="@+id/mListCheck"
+                android:layout_below="@+id/mCheck"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

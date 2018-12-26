@@ -9,6 +9,8 @@ import io.reactivex.schedulers.Schedulers
 
 class CardDetailPresenter(val view: CardDetailContract.View, val context: Context) : CardDetailContract.Presenter {
 
+    val Tag:String="CardDetailPresenter"
+
     val dao = Injection.provideDetailDao(context)
 
     override fun getCardTask(view: CardDetailContract.View, value: Int) {
@@ -25,6 +27,11 @@ class CardDetailPresenter(val view: CardDetailContract.View, val context: Contex
         dao.delete(detailEntity)
         view.onSucces()
     }
+      override fun updateNote(detailEntity: DetailEntity) {
+        dao.update(detailEntity)
+          view.onSucces()
+    }
+
 
 
 }

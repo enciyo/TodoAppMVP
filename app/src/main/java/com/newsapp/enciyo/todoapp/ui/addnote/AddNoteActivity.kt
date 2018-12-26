@@ -29,7 +29,7 @@ class AddNoteActivity : AppCompatActivity(), View.OnClickListener, AddNoteContra
                 Math.random().toInt(),
                 intent.getStringExtra("CardId").toInt(),
                 mGetTittle.text.toString(),
-                mGetDetail.text.toString()
+                mGetDetail.text.toString(),0
             ), this
         )
     }

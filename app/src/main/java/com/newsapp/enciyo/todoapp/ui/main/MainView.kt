@@ -12,6 +12,7 @@ interface MainView {
 
       fun getAllTodos(view: View)
       fun deleteTask(cardEntity: CardEntity)
+      fun updateTask(cardEntity: CardEntity)
 
   }
 
