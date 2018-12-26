@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_card_detail.*
 
 class CardDetailActivity : AppCompatActivity(), CardDetailContract.View, View.OnClickListener {
     override fun onClick(v: View?) {
-        CreateDemo.addDetail(this, this.cardId)
+       // CreateDemo.addDetail(this, this.cardId)
         startActivity(Intent(this, AddNoteActivity::class.java).putExtra("CardId", cardId.toString()))
 
     }

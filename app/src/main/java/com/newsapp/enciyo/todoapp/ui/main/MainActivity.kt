@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), MainView.View,View.OnClickListener{
 
     override fun onClick(v: View?) {
         Extensions.mLog("MainAcitivty: mAddButton")
-        CreateDemo.addCard(this)
+        //CreateDemo.addCard(this)
         startActivity(Intent(this, AddCardActivity::class.java))
     }
 

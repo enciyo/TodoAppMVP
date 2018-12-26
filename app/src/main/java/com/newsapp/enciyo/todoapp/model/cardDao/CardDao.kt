@@ -6,10 +6,10 @@ import io.reactivex.Maybe
 @Dao
 interface CardDao {
 
-        @Query("SELECT * FROM taskmodel")
+        @Query("SELECT * FROM taskmodel ORDER BY `cardState`")
         fun getAllCard(): Maybe<List<CardEntity>>
 
-        @Query("SELECT * FROM taskmodel where cardTitle LIKE  :name AND `cardDetail` LIKE :detail")
+        @Query("SELECT * FROM taskmodel where cardTitle LIKE  :name AND `cardDetail` LIKE :detail ORDER BY `cardState` DESC")
             fun findByName(name: String, detail: String): CardEntity
 
         @Insert
